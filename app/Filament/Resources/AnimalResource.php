@@ -60,9 +60,6 @@ class AnimalResource extends Resource
                 TextColumn::make('description')
                     ->searchable()
                     ->sortable(),
-                TextColumn::make('created_at')
-                    ->searchable()
-                    ->sortable(),
             ])
             ->filters([ 
                 // Tambahkan filter jika diperlukan
