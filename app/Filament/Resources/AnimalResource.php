@@ -34,9 +34,8 @@ class AnimalResource extends Resource
                     ->placeholder('Enter price')
                     ->required()
                     ->numeric()
-                    ->minValue(0)
-                    ->mask(fn (Forms\Components\TextInput\Mask $mask) => $mask->pattern('Rp. {999.999.999}')), // Menambahkan mask Rp saat input
-
+                    ->minValue(0),  // Harga sebagai angka tanpa masker
+                
                 Forms\Components\Textarea::make('description')
                     ->label('Description')
                     ->placeholder('Enter description')
