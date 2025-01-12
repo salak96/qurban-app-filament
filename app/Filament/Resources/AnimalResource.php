@@ -9,9 +9,9 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Filament\Tables\Columns\TextColumn; 
-use Filament\Tables\Columns\TextFilter; 
-use Filament\Tables\Columns\IconColumn; 
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\TextFilter;
+use Filament\Tables\Columns\IconColumn;
 
 class AnimalResource extends Resource
 {
@@ -28,12 +28,15 @@ class AnimalResource extends Resource
                     ->placeholder('Enter name')
                     ->required()
                     ->maxLength(255),
+                
                 Forms\Components\TextInput::make('price')
                     ->label('Price')
                     ->placeholder('Enter price')
                     ->required()
                     ->numeric()
-                    ->min(0),
+                    ->minValue(0)
+                    ->mask(fn (Forms\Components\TextInput\Mask $mask) => $mask->pattern('Rp. {999.999.999}')), // Menambahkan mask Rp saat input
+
                 Forms\Components\Textarea::make('description')
                     ->label('Description')
                     ->placeholder('Enter description')
@@ -46,14 +49,15 @@ class AnimalResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('id')  // Kolom 'id' tidak perlu metode 'primary'
-                    ->sortable(), // Gunakan id sebagai kolom sortable
+                TextColumn::make('id')
+                    ->sortable(),
                 TextColumn::make('name')
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('price')
+                    ->sortable()
                     ->searchable()
-                    ->sortable(),
+                    ->formatStateUsing(fn ($state) => 'Rp. ' . number_format($state, 0, ',', '.')),  // Format harga ke format Rupiah
                 TextColumn::make('description')
                     ->searchable()
                     ->sortable(),
