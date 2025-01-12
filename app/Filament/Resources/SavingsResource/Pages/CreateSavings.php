@@ -9,4 +9,8 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateSavings extends CreateRecord
 {
     protected static string $resource = SavingsResource::class;
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('index');
+    }
 }

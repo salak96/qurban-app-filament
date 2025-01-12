@@ -19,7 +19,7 @@ class SavingsResource extends Resource
 {
     protected static ?string $model = Saving::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-banknotes';
 
     // Form untuk menambah atau mengedit data
     public static function form(Form $form): Form

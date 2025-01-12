@@ -26,4 +26,8 @@ class Saving extends Model
     {
         return $this->belongsTo(Animal::class);
     }
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class);
+    }
 }
