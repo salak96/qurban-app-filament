@@ -19,4 +19,9 @@ class Animal extends Model
     {
         return $this->hasMany(Saving::class);
     }
+    protected $fillable = [
+        'name', 
+        'price',
+        'description'
+    ];
 }

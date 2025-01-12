@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Providers;
-
+use App\Models\Transactions;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider

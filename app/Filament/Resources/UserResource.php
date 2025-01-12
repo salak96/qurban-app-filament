@@ -25,8 +25,8 @@ class UserResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('username')
-                    ->label('Full Name')
+                TextInput::make('name')
+                    ->label('name')
                     ->placeholder('Enter full name')
                     ->required()
                     ->maxLength(255),
@@ -74,7 +74,7 @@ class UserResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('username')  // Gunakan 'username' sebagai kolom
+                TextColumn::make('name')  
                     ->sortable()
                     ->searchable(),
                 TextColumn::make('email')
